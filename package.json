@@ -4,7 +4,7 @@
   "description": "A REST API with Nodejs and Mysql",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server.js"
   },
   "author": "Tharindu Lakshitha",
@@ -13,11 +13,13 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "fastest-validator": "^1.7.0",
+    "fastest-validator": "^1.8.0",
+    "jest": "^26.6.3",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
-    "mysql2": "^2.1.0",
+    "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
-    "sequelize": "^5.22.3"
+    "sequelize": "^6.3.5",
+    "supertest": "^6.1.3"
   }
 }

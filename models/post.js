@@ -4,11 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     imageUrl: DataTypes.STRING,
-    categoryId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER
   }, {});
   Post.associate = function(models) {
     // associations can be defined here
+    Post.belongsToMany(models.Category, {through: 'PostCategory'});
+    Post.belongsTo(models.User);
   };
   return Post;
 };
