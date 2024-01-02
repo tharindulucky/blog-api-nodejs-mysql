@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  #MongoDB
+  db_service:
+    container_name: database_container
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db_data:/data/db
+    environment:
+      - MYSSQL_ROOT_USER=${DB_USERNAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+
+  app:
+    container_name: app_container
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - db_service
+
+volumes:
+  mongo_db: {}
