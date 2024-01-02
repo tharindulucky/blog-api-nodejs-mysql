@@ -24,5 +24,13 @@ services:
     depends_on:
       - db_service
 
+  migration:
+    container_name: migrator
+    build: .
+    depends_on:
+      - db_service
+    command: sh -c 'until nc -z db_service 3306; do sleep 1; done; npx sequelize-cli db:migrate'
+
+
 volumes:
   mongo_db: {}
