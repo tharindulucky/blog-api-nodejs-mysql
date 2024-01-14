@@ -11,7 +11,7 @@ services:
     volumes:
       - ./db_data:/data/db
     environment:
-      - MYSSQL_ROOT_USER=${DB_USERNAME}
+      - MYSQL_ROOT_USER=${DB_USERNAME}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
 
@@ -30,7 +30,3 @@ services:
     depends_on:
       - db_service
     command: sh -c 'until nc -z db_service 3306; do sleep 1; done; npx sequelize-cli db:migrate'
-
-
-volumes:
-  mongo_db: {}
